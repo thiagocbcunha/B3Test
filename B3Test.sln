@@ -81,7 +81,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{01C2B0
 		Docker\OTELCollector\config\otel-collector.yml = Docker\OTELCollector\config\otel-collector.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3.Test-WebApi", "src\B3.Test-WebApi\B3.Test-WebApi.csproj", "{9CE55A05-8151-4ED8-B71C-BE127A393430}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test-WebApi", "src\B3.Test-WebApi\B3.Test-WebApi.csproj", "{9CE55A05-8151-4ED8-B71C-BE127A393430}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{414C583A-E182-4FE0-8A87-BE474612AB45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3.Test.Library", "src\B3.Test.Library\B3.Test.Library.csproj", "{89BDEBB7-2736-4938-A28F-9A1F120319B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,10 @@ Global
 		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89BDEBB7-2736-4938-A28F-9A1F120319B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89BDEBB7-2736-4938-A28F-9A1F120319B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89BDEBB7-2736-4938-A28F-9A1F120319B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89BDEBB7-2736-4938-A28F-9A1F120319B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +151,8 @@ Global
 		{82BFE11F-C2D9-4971-90E2-10183CAE30B0} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
 		{01C2B0FB-C439-4A4F-973A-456597745534} = {82BFE11F-C2D9-4971-90E2-10183CAE30B0}
 		{9CE55A05-8151-4ED8-B71C-BE127A393430} = {572CEE5E-A361-4832-A438-52D57825A25C}
+		{414C583A-E182-4FE0-8A87-BE474612AB45} = {3345E665-0648-4C7C-9742-D5E9D60F156B}
+		{89BDEBB7-2736-4938-A28F-9A1F120319B6} = {414C583A-E182-4FE0-8A87-BE474612AB45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {033608E6-3C5A-47B4-8B99-22658E6B3117}

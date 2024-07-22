@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\B3.Test.Crosscuting.Ioc\B3.Test.Crosscuting.Ioc.csproj" />
+    <ProjectReference Include="..\B3.Test.Library\B3.Test.Library.csproj" />
   </ItemGroup>
 
 </Project>

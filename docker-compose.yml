@@ -127,7 +127,7 @@ services:
       dockerfile: ./src/B3.Test-WebApi/Dockerfile
     environment:
       "ASPNETCORE_HTTP_PORTS": "8080"
-      "ASPNETCORE_ENVIRONMENT": "Docker"
+      "ASPNETCORE_ENVIRONMENT": "Release"
     ports:
        - 32805:8080
     networks:

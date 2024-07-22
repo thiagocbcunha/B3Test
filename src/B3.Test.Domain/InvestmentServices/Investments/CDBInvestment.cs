@@ -1,15 +1,22 @@
-﻿using B3.Test.Domain.Core.Contracts.Repositories;
+﻿using B3.Test.Domain.Core.Model;
+using B3.Test.Library.Contracts;
+using B3.Test.Domain.Core.Enums;
+using Microsoft.Extensions.Logging;
+using B3.Test.Domain.Core.Contracts.Repositories;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
 using B3.Test.Domain.Core.Contracts.Services.InvestmentServices;
-using B3.Test.Domain.Core.Enums;
-using B3.Test.Domain.Core.Model;
 
 namespace B3.Test.Domain.InvestmentServices.Investments;
 
-public class CDBInvestment(IFeeService _feeService, IProfitabilityRepository _profitabilityRepository) : ICDBInvestment
+public class CDBInvestment(ILogger<CDBInvestment> _logger, IActivityFactory _activityFactory, IFeeService _feeService, IProfitabilityRepository _profitabilityRepository) : ICDBInvestment
 {
     public async Task<InvestmentModel> GetInvestment(int timeOfInvestmentInMonth, decimal initValue)
     {
+        _activityFactory.Start<CDBInvestment>()
+            .Tag?.SetTag("log", "Executing GetInvestment");
+
+        _logger.LogInformation("Executing GetInvestment");
+
         var now = DateTime.Now;
         var freeTax = initValue;
         var investmentModel = new InvestmentModel();

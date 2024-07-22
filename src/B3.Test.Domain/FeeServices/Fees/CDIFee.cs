@@ -1,13 +1,20 @@
-﻿using B3.Test.Domain.Core.Contracts.Acl;
+﻿using B3.Test.Domain.Core.Model;
+using B3.Test.Library.Contracts;
+using Microsoft.Extensions.Logging;
+using B3.Test.Domain.Core.Contracts.Acl;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
-using B3.Test.Domain.Core.Model;
 
 namespace B3.Test.Domain.FeeServices.Fees;
 
-public class CDIFee(IDailyCDIAcl _dailyCDIAcl, IMonthlyCDIAcl _monthlyCDIAcl) : ICDIFee
+public class CDIFee(ILogger<CDIFee> _logger, IActivityFactory _activityFactory, IDailyCDIAcl _dailyCDIAcl, IMonthlyCDIAcl _monthlyCDIAcl) : ICDIFee
 {
     public async Task<BasicFeeModel> GetConsolidated()
     {
+        _activityFactory.Start<CDIFee>()
+            .Tag?.SetTag("log", "Executing GetConsolidated");
+
+        _logger.LogInformation("Executing GetConsolidated");
+
         var dailyFee = await _dailyCDIAcl.GetFees();
         var monthlyFee = await _monthlyCDIAcl.GetFees();
         var initMonthDate = DateTime.Now.AddDays(-1 * DateTime.Now.Day + 2).Date;
@@ -20,6 +27,11 @@ public class CDIFee(IDailyCDIAcl _dailyCDIAcl, IMonthlyCDIAcl _monthlyCDIAcl) : 
 
     public async Task<BasicFeeModel> GetCurrent()
     {
+        _activityFactory.Start<CDIFee>()
+            .Tag?.SetTag("log", "Executing GetCurrent");
+
+        _logger.LogInformation("Executing GetCurrent");
+
         var monthlyFee = await _monthlyCDIAcl.GetFees();
         var fee = monthlyFee.Last().Fee;
 
