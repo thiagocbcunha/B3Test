@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <RootNamespace>B3.Test.WebApi</RootNamespace>
+    <UserSecretsId>a3a0f9a5-8722-4cd3-8504-448b243470bd</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B3.Test.Application\B3.Test.Application.csproj" />
+    <ProjectReference Include="..\B3.Test.Crosscuting.Ioc\B3.Test.Crosscuting.Ioc.csproj" />
+    <ProjectReference Include="..\B3.Test.Domain\B3.Test.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

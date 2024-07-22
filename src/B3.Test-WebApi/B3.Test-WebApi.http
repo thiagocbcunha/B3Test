@@ -1,0 +1,6 @@
+@B3.Test_WebApi_HostAddress = http://localhost:5036
+
+GET {{B3.Test_WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

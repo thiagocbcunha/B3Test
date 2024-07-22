@@ -1,0 +1,150 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{572CEE5E-A361-4832-A438-52D57825A25C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{22D10D1D-35BC-40E6-8DCB-83D47B5FBF09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{00CFB81F-44E8-4EC6-B22C-ADF0EA1EA891}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test.Application", "src\B3.Test.Application\B3.Test.Application.csproj", "{6B42CE46-7330-4A0D-8B2E-580BA5FA616E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test.Domain", "src\B3.Test.Domain\B3.Test.Domain.csproj", "{E9AB5457-6F7D-4BE0-865D-5599D8805104}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test.Domain.Core", "src\B3.Test.Domain.Core\B3.Test.Domain.Core.csproj", "{D629FDD0-6AEF-44EB-B203-46D622127EED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test.Crosscuting.Ioc", "src\B3.Test.Crosscuting.Ioc\B3.Test.Crosscuting.Ioc.csproj", "{8F2B743C-4404-4D10-8642-56BDFB34137E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test.Infra", "src\B3.Test.Infra\B3.Test.Infra.csproj", "{180E5E18-3BDC-46D8-AB4B-318D7075FE87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B3.Test-FrontrEnd", "src\B3.Test-FrontrEnd\B3.Test-FrontrEnd.csproj", "{C4018788-AB82-4748-B588-F21AA404EEE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3345E665-0648-4C7C-9742-D5E9D60F156B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C33F6AF3-A2CF-4BE2-A71A-07B8A0DC2378}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elastic", "Elastic", "{EC0FF62B-6CEE-46E6-9D87-36EF3580E956}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Elastic\Dockerfile = Docker\Elastic\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{83F88525-CCEA-4DF0-B4BE-F598D16B7451}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Elastic\config\elasticsearch.yml = Docker\Elastic\config\elasticsearch.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jaeger", "Jaeger", "{28BEEF0D-AAAE-4CCC-9A41-AEB680AC6CCC}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Jaeger\Dockerfile = Docker\Jaeger\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kibana", "Kibana", "{B1738D23-0FA8-430A-8A73-42B194D2635F}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Kibana\Dockerfile = Docker\Kibana\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D2927195-48DE-488A-81BE-9413BE3F1EB2}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Kibana\config\kibana.yml = Docker\Kibana\config\kibana.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logstash", "Logstash", "{58A48B56-260D-4A3A-9FCF-9F089B4B791F}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Logstash\Dockerfile = Docker\Logstash\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{3DB2386C-29C3-41EB-98A8-714F53CDAE42}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Logstash\config\logstash.yml = Docker\Logstash\config\logstash.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipeline", "pipeline", "{986F75A8-1C68-4025-A1E3-1112DC8E1ABC}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Logstash\pipeline\logstash.conf = Docker\Logstash\pipeline\logstash.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OTELCollector", "OTELCollector", "{82BFE11F-C2D9-4971-90E2-10183CAE30B0}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\OTELCollector\Dockerfile = Docker\OTELCollector\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{01C2B0FB-C439-4A4F-973A-456597745534}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\OTELCollector\config\otel-collector.yml = Docker\OTELCollector\config\otel-collector.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B3.Test-WebApi", "src\B3.Test-WebApi\B3.Test-WebApi.csproj", "{9CE55A05-8151-4ED8-B71C-BE127A393430}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B42CE46-7330-4A0D-8B2E-580BA5FA616E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B42CE46-7330-4A0D-8B2E-580BA5FA616E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B42CE46-7330-4A0D-8B2E-580BA5FA616E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B42CE46-7330-4A0D-8B2E-580BA5FA616E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9AB5457-6F7D-4BE0-865D-5599D8805104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9AB5457-6F7D-4BE0-865D-5599D8805104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9AB5457-6F7D-4BE0-865D-5599D8805104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9AB5457-6F7D-4BE0-865D-5599D8805104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D629FDD0-6AEF-44EB-B203-46D622127EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D629FDD0-6AEF-44EB-B203-46D622127EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D629FDD0-6AEF-44EB-B203-46D622127EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D629FDD0-6AEF-44EB-B203-46D622127EED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2B743C-4404-4D10-8642-56BDFB34137E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2B743C-4404-4D10-8642-56BDFB34137E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2B743C-4404-4D10-8642-56BDFB34137E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2B743C-4404-4D10-8642-56BDFB34137E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180E5E18-3BDC-46D8-AB4B-318D7075FE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180E5E18-3BDC-46D8-AB4B-318D7075FE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180E5E18-3BDC-46D8-AB4B-318D7075FE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180E5E18-3BDC-46D8-AB4B-318D7075FE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4018788-AB82-4748-B588-F21AA404EEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4018788-AB82-4748-B588-F21AA404EEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4018788-AB82-4748-B588-F21AA404EEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4018788-AB82-4748-B588-F21AA404EEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE55A05-8151-4ED8-B71C-BE127A393430}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{572CEE5E-A361-4832-A438-52D57825A25C} = {3345E665-0648-4C7C-9742-D5E9D60F156B}
+		{22D10D1D-35BC-40E6-8DCB-83D47B5FBF09} = {3345E665-0648-4C7C-9742-D5E9D60F156B}
+		{00CFB81F-44E8-4EC6-B22C-ADF0EA1EA891} = {3345E665-0648-4C7C-9742-D5E9D60F156B}
+		{6B42CE46-7330-4A0D-8B2E-580BA5FA616E} = {22D10D1D-35BC-40E6-8DCB-83D47B5FBF09}
+		{E9AB5457-6F7D-4BE0-865D-5599D8805104} = {22D10D1D-35BC-40E6-8DCB-83D47B5FBF09}
+		{D629FDD0-6AEF-44EB-B203-46D622127EED} = {22D10D1D-35BC-40E6-8DCB-83D47B5FBF09}
+		{8F2B743C-4404-4D10-8642-56BDFB34137E} = {00CFB81F-44E8-4EC6-B22C-ADF0EA1EA891}
+		{180E5E18-3BDC-46D8-AB4B-318D7075FE87} = {00CFB81F-44E8-4EC6-B22C-ADF0EA1EA891}
+		{C4018788-AB82-4748-B588-F21AA404EEE6} = {572CEE5E-A361-4832-A438-52D57825A25C}
+		{77D64CE0-C141-41EC-95DA-1B26A3FCBCA4} = {C33F6AF3-A2CF-4BE2-A71A-07B8A0DC2378}
+		{EC0FF62B-6CEE-46E6-9D87-36EF3580E956} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
+		{83F88525-CCEA-4DF0-B4BE-F598D16B7451} = {EC0FF62B-6CEE-46E6-9D87-36EF3580E956}
+		{28BEEF0D-AAAE-4CCC-9A41-AEB680AC6CCC} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
+		{B1738D23-0FA8-430A-8A73-42B194D2635F} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
+		{D2927195-48DE-488A-81BE-9413BE3F1EB2} = {B1738D23-0FA8-430A-8A73-42B194D2635F}
+		{58A48B56-260D-4A3A-9FCF-9F089B4B791F} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
+		{3DB2386C-29C3-41EB-98A8-714F53CDAE42} = {58A48B56-260D-4A3A-9FCF-9F089B4B791F}
+		{986F75A8-1C68-4025-A1E3-1112DC8E1ABC} = {58A48B56-260D-4A3A-9FCF-9F089B4B791F}
+		{82BFE11F-C2D9-4971-90E2-10183CAE30B0} = {77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}
+		{01C2B0FB-C439-4A4F-973A-456597745534} = {82BFE11F-C2D9-4971-90E2-10183CAE30B0}
+		{9CE55A05-8151-4ED8-B71C-BE127A393430} = {572CEE5E-A361-4832-A438-52D57825A25C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {033608E6-3C5A-47B4-8B99-22658E6B3117}
+	EndGlobalSection
+EndGlobal

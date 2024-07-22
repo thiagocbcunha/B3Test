@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B3.Test.Application\B3.Test.Application.csproj" />
+    <ProjectReference Include="..\B3.Test.Domain.Core\B3.Test.Domain.Core.csproj" />
+    <ProjectReference Include="..\B3.Test.Domain\B3.Test.Domain.csproj" />
+    <ProjectReference Include="..\B3.Test.Infra\B3.Test.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

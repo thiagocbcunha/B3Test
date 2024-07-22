@@ -1,0 +1,85 @@
+<div class="container">
+  <div>
+    <h1>Simulação de Investimento CDB</h1>
+     <form (ngSubmit)="onSubmit()" #cdbInvSimulationForm="ngForm">
+
+      <div class="form-group">
+        <label>CDI Anual hoje:</label>
+        <span> {{model.CDIToday}}%</span>
+        <br />
+        <label>Oferta Banco ABC:</label>
+        <span> {{model.paidProfitability}}%</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Investimento Inicial</label>
+        <input type="number" class="form-control" id="InitialInvestment" placeholder="0,00" step='0.25' required min="1" max="2000000" [(ngModel)]="model.InitialInvestment" name="InitialInvestment" #InitialInvestment="ngModel" />
+        <div [hidden]="InitialInvestment.pristine" *ngIf="InitialInvestment.errors?.['required']" class="alert alert-danger">
+          O valor do investimento inicial é obrigatório.
+        </div>
+        <div *ngIf="InitialInvestment.errors?.['min']" class="alert alert-danger">
+          O valor do investimento inicial não poderá ser menor que R$ 1,00.
+        </div>
+        <div *ngIf="InitialInvestment.errors?.['max']" class="alert alert-danger">
+          O valor do investimento inicial não poderá ser maior que R$ 2.000.000,00.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Tempo total de investimento em meses</label>
+        <input type="number" class="form-control" id="TimeInvestmentInMonth" placeholder="0" required min="1" max="360" [(ngModel)]="model.TimeInvestmentInMonth" name="TimeInvestmentInMonth" #TimeInvestmentInMonth="ngModel" />
+        <div [hidden]="TimeInvestmentInMonth.pristine" *ngIf="TimeInvestmentInMonth.errors?.['required']" class="alert alert-danger">
+          O tempo total de investimento é obrigatório.
+        </div>
+        <div *ngIf="TimeInvestmentInMonth.errors?.['min']" class="alert alert-danger">
+          O tempo total de investimento não deverá ser menor que 1 mês.
+        </div>
+        <div *ngIf="TimeInvestmentInMonth.errors?.['max']" class="alert alert-danger">
+          O tempo total de investimento não deverá ser maior que 360 meses.
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!cdbInvSimulationForm.form.valid" (click)="getSimulation(); cdbInvSimulationForm.reset()">
+        Simular
+      </button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Investimento CDB</h2>
+    <div class="row">
+      <label class="col-xs-3">Tipo</label>
+      <div class="col-xs-9">CDB</div>
+    </div>
+    <div class="row">
+      <label class="col-xs-3">Lucro Bruto</label>
+      <div class="col-xs-9">{{ model.resultSimulation.performance | currency: 'R$ '}}</div>
+    </div>
+    <div class="row">
+      <label class="col-xs-3">Lucro Livre de Impostos</label>
+      <div class="col-xs-9">{{ model.resultSimulation.taxExemptProfit | currency: 'R$ '}}</div>
+    </div>
+    <div class="container">
+      <div class="card list-car">
+        <h4 class="card-header">Previsão Mensal</h4>
+        <div class="card-body">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Lucro Bruto</th>
+                  <th scope="col">Lucro Livre de Impostos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let performance of model.resultSimulation.performanceByMonth">
+                  <td>{{performance.prevision | date : 'dd/MM/yyyy'}}</td>
+                  <td>{{performance.performance | currency: 'R$ '}}</td>
+                  <td>{{performance.taxExemptProfit | currency: 'R$ '}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
