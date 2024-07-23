@@ -4,6 +4,7 @@
 Este projeto é uma aplicação que executa a simulação do rendimento do CDB de um investimento inicial em relação a x tempos em meses.
 
 ## Inicialização do Projeto
+Para iniciar o projeto há duas formas: via Docker, onde imagens serão subidas para projeto da aplicação, e inicialização local. A vantagem do Docker é que ferramentais de log e telemetria sobem junto com a aplicação. E podemos atestar a monitoria da aplicação. Um ponto que vale nos atentarmos é que tanto inicialização com abordagem do Docker, quanto inicialização local, vão compartilhar das mesmas portas para as aplicações. Com isso é necessário matar por completo o container criando dentro do Docker para que não haja concorrência de porta da aplicação.
 ### Docker
 Na raiz do projeto, assim que feito o pull request, abra o terminal e execute o comando abaixo.   
 ```bash
