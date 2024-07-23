@@ -1,5 +1,3 @@
-
-
 # B3 Test
 ## Intenção
 Este projeto é uma aplicação que executa a simulação do rendimento do CDB de um investimento inicial em relação a x tempos em meses.
@@ -21,6 +19,7 @@ docker-compose up -d
 ![PowerShell](img/start-all-docker.png)
 
 *Obs: Como visto na imagem os containers ficam com status de Started, contudo não é nesse momento que de fato a aplicação está de pé, para tal é necessário que seja encontrado o log visto na imagem abaixo do container **b3test-b3.test.frontend** no  Docker Desktop*
+
 ![Log Docker](img/log-docker.png)
 
 
