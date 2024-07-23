@@ -9,7 +9,7 @@ using B3.Test.Domain.Core.Enums;
 using B3.Test.Domain.Core.Model;
 using FluentAssertions;
 
-namespace B3.Test.Application.UnitTests
+namespace B3.Test.Application.UnitTests.Handlers
 {
     public class ConsolidatedFeeHandlerTests
     {
@@ -51,5 +51,5 @@ namespace B3.Test.Application.UnitTests
                 _tagmock.Verify(m => m.SetTag("log", "Executing Handler"), Times.Once);
             }
         }
-    }    
+    }
 }

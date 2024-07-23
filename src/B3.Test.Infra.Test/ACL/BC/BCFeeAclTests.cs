@@ -6,7 +6,7 @@ using B3.Test.Infra.Options;
 using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
 
-namespace B3.Test.Domain.Test.Services.FeeServices
+namespace B3.Test.Infra.Test.ACL.BC
 {
     public class BCFeeAclTests
     {
@@ -21,7 +21,7 @@ namespace B3.Test.Domain.Test.Services.FeeServices
         [SetUp]
         public void Setup()
         {
-            _sourceFee = new SourceFee { BCCDI = "https://api.bcb.gov.br/dados/serie/bcdata.sgs.11/dados/ultimos/20?formato=json" };
+            _sourceFee = new SourceFee { BCCDI = "http://teste" };
 
             _acl = new(_loggermock.Object, _activityfactorymock.Object, _sourceFee);
 
@@ -38,8 +38,20 @@ namespace B3.Test.Domain.Test.Services.FeeServices
         {
             if (_acl is not null)
             {
-                var result = await _acl.GetFees();
-                result.Should().HaveCountGreaterThan(0);
+                using (var httpTest = new HttpTest())
+                {
+                    httpTest.RespondWithJson(new object[]
+                    {
+                        new 
+                        {
+                                data = "26/06/2024",
+                                valor = "0.039270"
+                        }
+                    }, 200);
+
+                    var result = await _acl.GetFees();
+                    result.Should().HaveCountGreaterThan(0);
+                }
 
                 _activityfactorymock.Verify(m => m.Start<BCFeeAcl>(), Times.Once);
                 _tagmock.Verify(m => m.SetTag("log", "Executing GetFees"), Times.Once);
@@ -54,7 +66,7 @@ namespace B3.Test.Domain.Test.Services.FeeServices
                 using (var httpTest = new HttpTest())
                 {
                     httpTest.RespondWith("Error", 500);
-                    var result = async() => await _acl.GetFees();
+                    var result = async () => await _acl.GetFees();
                     await result.Should().ThrowExactlyAsync<HttpRequestException>().WithMessage("Erro ao consultar CDI no BC.");
                 }
 

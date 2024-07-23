@@ -1,14 +1,11 @@
 using Moq;
 using FluentAssertions;
-using Flurl.Http.Testing;
-using B3.Test.Infra.ACL.BC;
-using B3.Test.Infra.Options;
-using B3.Test.Library.Contracts;
-using Microsoft.Extensions.Logging;
 using B3.Test.Infra.Database;
 using B3.Test.Domain.Core.Enums;
+using B3.Test.Library.Contracts;
+using Microsoft.Extensions.Logging;
 
-namespace B3.Test.Domain.Test.Services.FeeServices
+namespace B3.Test.Infra.Test.Database
 {
     public class ProfitabilityRepositoryTests
     {
@@ -40,7 +37,7 @@ namespace B3.Test.Domain.Test.Services.FeeServices
         }
             
 
-        [TestCase(InvestmentEnum.CDB, 114.5, TestName = "ShoudGetCDBSuccessfully")]
+        [TestCase(InvestmentEnum.CDB, 108, TestName = "ShoudGetCDBSuccessfully")]
         [TestCase(InvestmentEnum.Tesouro, 11, TestName = "ShoudGetTesouroSuccessfully")]
         public async Task ShoudExecuteSuccessfully(InvestmentEnum investmentEnum, decimal expectedValue)
         {

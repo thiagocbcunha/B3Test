@@ -1,5 +1,4 @@
-﻿using B3.Test.Infra.ACL.BC;
-using B3.Test.Library.Contracts;
+﻿using B3.Test.Library.Contracts;
 using B3.Test.Domain.Core.Enums;
 using B3.Test.Domain.Core.Model;
 using Microsoft.Extensions.Logging;
@@ -18,7 +17,7 @@ public class ProfitabilityRepositoryMock(ILogger<ProfitabilityRepositoryMock> _l
 
         var result = investmentEnum switch
         {
-            InvestmentEnum.CDB => new ProfitabilityModel(InvestmentEnum.CDB, 114.5m),
+            InvestmentEnum.CDB => new ProfitabilityModel(InvestmentEnum.CDB, 108),
             InvestmentEnum.Tesouro => new ProfitabilityModel(InvestmentEnum.Tesouro, 11),
             _ => new ProfitabilityModel(InvestmentEnum.CDB, 114.5m)
         };

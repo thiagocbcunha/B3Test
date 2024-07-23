@@ -1,3 +1,4 @@
+
 # B3 Test
 ## Intenção
 Este projeto é uma aplicação que executa a simulação do rendimento do CDB de um investimento inicial em relação a x tempos em meses.
@@ -57,6 +58,28 @@ Para a WebApi, set o **B3.Test-WebApi** como Startup, inicie o projeto com o pro
 * [Simulador de Investimento CDB](http://localhost:4200/)
 * [Swagger WebApi](http://localhost:32805/swagger/index.html)
 
+## Testes
+### Teste Funcional
+Para execução de negócio acesse [Simulador de Investimento CDB](http://localhost:4200/) deverá ser vista a tela como na imagem abaixo:
+
+![Tela inicial](img/teste-01.png)
+
+* Preencha o **Investimento Inicial** com um valor numérico não menor que 1
+* Preencha o **Tempo total de investimento em meses** com um valor numérico não menor que 1
+* Caso os campos estejam preenchido com valores validos o botão **Simular** estará habilitado, como visto na imagem abaixo.
+	* Clique no botão **Simular**
+
+![Tela Preenchida](img/teste-02.png)
+
+Ao clicar no botão **Simular** a tela deverá se comportar de acordo com a imagem abaixo, apresentando uma tabela de previsões com a quantidade de linhas correspondente ao valor preenchido no campo **Tempo total de investimento em meses**, nesse caso, foi o valor 4.
+
+![Tela Final](img/teste-03.png)
+
+### Testes Unitários
+Abra a Solution do projeto e executes os teste unitário. Ao final deverá estar de acordo com a imagem abaixo:
+
+![Tela Final](img/teste-04.png)
+
 ## Banco de Dados
 * ElasticSearch
 
@@ -71,7 +94,7 @@ A observabilidade em aplicações refere-se à capacidade de compreender e monit
 
 ## Premissas
 Seguindo os princípios do bom desenvolvimento de software, construí este projeto com ênfase na arquitetura da solução e da aplicação. A análise do código revela uma separação em camadas bem definida, onde a camada de domínio, responsável pelas regras de negócio, é acessada exclusivamente por meio de interfaces bem definidas, chamadas de portas e o componente que apoia a lógica de negócio se adapta a essas portas. Essa abordagem, conhecida como **arquitetura hexagonal**, promove a independência da lógica de negócio em relação às tecnologias e frameworks utilizados, facilitando testes, manutenabilidade e reuso de código. O projeto também **incorpora os princípios SOLID**, um conjunto de boas práticas que garantem a coesão e baixo acoplamento. Essa combinação resulta em um código mais robusto, flexível e fácil de entender. 
-Para garantir a qualidade do código segui **conceitos do Clen Code** e **realizei testes unitários** com alta cobertura, como visto na imagem abaixo. Além disso, um **teste de integração** somente nas ACLs para validar as chamadas ao BC e Ipea para recuperação do CDI oficial.
+Para garantir a qualidade do código segui **conceitos do Clen Code** e **realizei testes unitários** com alta cobertura, como visto na imagem abaixo.
 
 ![PowerShell](img/test-coverage.png) 
 

@@ -6,7 +6,7 @@ using B3.Test.Infra.ACL.IPEA;
 using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
 
-namespace B3.Test.Domain.Test.Services.FeeServices
+namespace B3.Test.Infra.Test.ACL.Ipea
 {
     public class IpeaFeeAclTests
     {
@@ -21,7 +21,7 @@ namespace B3.Test.Domain.Test.Services.FeeServices
         [SetUp]
         public void Setup()
         {
-            _sourceFee = new SourceFee { IpeaCDI = "http://ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='BM12_TJCDI12')" };
+            _sourceFee = new SourceFee { IpeaCDI = "http://teste" };
 
             _acl = new(_loggermock.Object, _activityfactorymock.Object, _sourceFee);
 
@@ -38,8 +38,26 @@ namespace B3.Test.Domain.Test.Services.FeeServices
         {
             if (_acl is not null)
             {
-                var result = await _acl.GetFees();
-                result.Should().HaveCountGreaterThan(0);
+                using (var httpTest = new HttpTest())
+                {
+                    httpTest.RespondWithJson(new
+                    {
+                        value = new object[]
+                        {
+                            new {
+                                SERCODIGO = "BM12_TJCDI12",
+                                VALDATA = "1986-03-01T00:00:00-03:00",
+                                VALVALOR = 0.87,
+                                NIVNOME = "",
+                                TERCODIGO = ""
+                            }
+                        }
+                    }, 200);
+
+                    var result = await _acl.GetFees();
+                    result.Should().HaveCountGreaterThan(0);
+                }
+
 
                 _activityfactorymock.Verify(m => m.Start<IpeaFeeAcl>(), Times.Once);
                 _tagmock.Verify(m => m.SetTag("log", "Executing GetFees"), Times.Once);
@@ -54,7 +72,7 @@ namespace B3.Test.Domain.Test.Services.FeeServices
                 using (var httpTest = new HttpTest())
                 {
                     httpTest.RespondWith("Error", 500);
-                    var result = async() => await _acl.GetFees();
+                    var result = async () => await _acl.GetFees();
                     await result.Should().ThrowExactlyAsync<HttpRequestException>().WithMessage("Erro ao consultar CDI no Ipea.");
                 }
 

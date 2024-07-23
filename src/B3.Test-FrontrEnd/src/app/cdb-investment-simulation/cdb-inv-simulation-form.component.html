@@ -5,10 +5,10 @@
 
       <div class="form-group">
         <label>CDI Anual hoje:</label>
-        <span> {{model.CDIToday}}%</span>
+        <span> {{model.CDIToday | currency: ' '}}%</span>
         <br />
         <label>Oferta Banco ABC:</label>
-        <span> {{model.paidProfitability}}%</span>
+        <span> {{model.paidProfitability | currency: ' '}}%</span>
       </div>
 
       <div class="form-group">
@@ -84,4 +84,6 @@
         </div>
       </div>
   </div>
+</div>
+
 </div>
