@@ -49,10 +49,9 @@ Visual Studio:
 ![PowerShell](img/init-frontend.png)
 
 Com isso a aplicação em Angular irá iniciar na porta *4200*. Com isso o FrontEnd está inicializado, falta a WebApi.
-Para a WebApi, set o **B3.Test-WebApi** como Startup, inicie o projeto como Dock ou http. Agora sim tudo finalizado.
+Para a WebApi, set o **B3.Test-WebApi** como Startup, inicie o projeto com o profile http. Agora sim tudo finalizado.
 
 ![WebApi](img/webapi-init-http.png)
-![WebApi](img/webapi-init-dock.png)
 
 #### Acesso
 * [Simulador de Investimento CDB](http://localhost:4200/)
