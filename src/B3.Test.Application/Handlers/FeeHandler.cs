@@ -12,9 +12,9 @@ public class FeeHandler(ILogger<FeeHandler> _logger, IActivityFactory _activityF
     public async Task<BasicFeeModel> Handle(FeeCommand request, CancellationToken cancellationToken)
     {
         _activityFactory.Start<FeeHandler>()
-            .Tag?.SetTag("log", "Executing Handle");
+            .Tag?.SetTag("log", "Executing Handler");
 
-        _logger.LogInformation("Executing Handle");
+        _logger.LogInformation("Executing Handler");
 
         return await _feeService.GetCurrent(request.FeeEnum);
     }

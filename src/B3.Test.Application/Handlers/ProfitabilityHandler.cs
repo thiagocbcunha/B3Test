@@ -12,9 +12,9 @@ public class ProfitabilityHandler(ILogger<ProfitabilityHandler> _logger, IActivi
     public async Task<ProfitabilityModel> Handle(ProfitabilityCommand request, CancellationToken cancellationToken)
     {
         _activityFactory.Start<ProfitabilityHandler>()
-            .Tag?.SetTag("log", "Executing Handle");
+            .Tag?.SetTag("log", "Executing Handler");
 
-        _logger.LogInformation("Executing Handle");
+        _logger.LogInformation("Executing Handler");
 
         return await _profitabilityRepository.GetByInvestmentType(request.InvestmentEnum);
     }

@@ -2,11 +2,13 @@
 using OpenTelemetry.Resources;
 using B3.Test.Library.Options;
 using B3.Test.Library.Contracts;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace B3.Test.Library.Tracing;
 
+[ExcludeFromCodeCoverage]
 public class EnterpriseTracingBuilder
 {
     private readonly IServiceCollection _service;

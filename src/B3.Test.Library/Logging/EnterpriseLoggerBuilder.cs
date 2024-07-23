@@ -3,9 +3,11 @@ using Serilog.Filters;
 using Serilog.Exceptions;
 using B3.Test.Library.Options;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace B3.Test.Library.Logging;
 
+[ExcludeFromCodeCoverage]
 internal class EnterpriseLoggerBuilder
 {
     private readonly IConfiguration _configuration;

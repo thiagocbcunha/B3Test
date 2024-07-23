@@ -12,9 +12,9 @@ public class InvestmentHandler(ILogger<InvestmentHandler> _logger, IActivityFact
     public async Task<InvestmentModel> Handle(InvestmentCommand request, CancellationToken cancellationToken)
     {
         _activityFactory.Start<InvestmentHandler>()
-            .Tag?.SetTag("log", "Executing Handle");
+            .Tag?.SetTag("log", "Executing Handler");
 
-        _logger.LogInformation("Executing Handle");
+        _logger.LogInformation("Executing Handler");
 
         return await investmentService.GetInvestment((InvestmentRequestModel)request);
     }

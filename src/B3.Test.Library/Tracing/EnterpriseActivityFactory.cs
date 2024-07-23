@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using B3.Test.Library.Contracts;
 using B3.Test.Library.Options;
+using B3.Test.Library.Contracts;
 
 namespace B3.Test.Library.Tracing;
 
@@ -28,6 +28,7 @@ public class EnterpriseActivityFactory(EnterpriceConfiguration config) : IActivi
     public void Dispose()
     {
         _activity?.Dispose();
+        _activity = null;
     }
 
     public ITag? Tag => _tag;
