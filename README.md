@@ -1,4 +1,5 @@
 
+
 # B3 Test
 ## Intenção
 Este projeto é uma aplicação que executa a simulação do rendimento do CDB de um investimento inicial em relação a x tempos em meses.
@@ -19,7 +20,9 @@ docker-compose up -d
 ```
 ![PowerShell](img/start-all-docker.png)
 
-*Obs: Em toda reinicialização do docker, sempre e antes de nova inicialização **exclua o diretório DockerAppFiles** criado na raiz do projeto.*
+*Obs: Como visto na imagem os containers ficam com status de Started, contudo não é nesse momento que de fato a aplicação está de pé, para tal é necessário que seja encontrado o log visto na imagem abaixo do container **b3test-b3.test.frontend** no  Docker Desktop*
+![Log Docker](img/log-docker.png)
+*Obs 2: Em toda reinicialização do docker, sempre e antes de nova inicialização **exclua o diretório DockerAppFiles** criado na raiz do projeto.*
 
 #### Acesso
 Por fim, acesso o swagger das aplicações, nos endereços:
@@ -27,7 +30,17 @@ Por fim, acesso o swagger das aplicações, nos endereços:
 
 ### Inicialização Local Vis Visual Studio
 Abra a Solution do projeto Visual Studio, em seguida clique com botão direito sobre o projeto **B3.Test-FrontrEnd** navegue no menu até Open In Terminal (Abrir no Terminal). Irá inicializar o PowerShell do Desenvolvedor no Visual Studio. 
-Digite o comando abaixo:
+Digite a sequencia de comandos abaixo:
+* O comando abaixo irá instalar o Angular Client
+```bash
+npm install -g @angular/cli
+```
+
+* O comando abaixo irá forçar a instalação das dependências dos projeto.
+```bash
+npm install --force
+```
+* O comando abaixo vai iniciar a aplicação frontend no endereço *http://localhost:4200*
 ```bash
 ng serve
 ```
