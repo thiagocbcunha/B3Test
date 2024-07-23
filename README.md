@@ -45,10 +45,12 @@ npm install --force
 ng serve
 ```
 Visual Studio:
+
 ![PowerShell](img/init-frontend.png)
 
 Com isso a aplicação em Angular irá iniciar na porta *4200*. Com isso o FrontEnd está inicializado, falta a WebApi.
 Para a WebApi, set o **B3.Test-WebApi** como Startup, inicie o projeto como Dock ou http. Agora sim tudo finalizado.
+
 ![WebApi](img/webapi-init-http.png)
 ![WebApi](img/webapi-init-dock.png)
 
@@ -71,6 +73,7 @@ A observabilidade em aplicações refere-se à capacidade de compreender e monit
 ## Premissas
 Seguindo os princípios do bom desenvolvimento de software, construí este projeto com ênfase na arquitetura da solução e da aplicação. A análise do código revela uma separação em camadas bem definida, onde a camada de domínio, responsável pelas regras de negócio, é acessada exclusivamente por meio de interfaces bem definidas, chamadas de portas e o componente que apoia a lógica de negócio se adapta a essas portas. Essa abordagem, conhecida como **arquitetura hexagonal**, promove a independência da lógica de negócio em relação às tecnologias e frameworks utilizados, facilitando testes, manutenabilidade e reuso de código. O projeto também **incorpora os princípios SOLID**, um conjunto de boas práticas que garantem a coesão e baixo acoplamento. Essa combinação resulta em um código mais robusto, flexível e fácil de entender. 
 Para garantir a qualidade do código segui **conceitos do Clen Code** e **realizei testes unitários** com alta cobertura, como visto na imagem abaixo. Além disso, um **teste de integração** somente nas ACLs para validar as chamadas ao BC e Ipea para recuperação do CDI oficial.
+
 ![PowerShell](img/test-coverage.png) 
 
 
