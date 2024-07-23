@@ -38,4 +38,4 @@ app.MapControllers();
 
 app.UseCors();
 
-app.Run();
+await app.RunAsync();

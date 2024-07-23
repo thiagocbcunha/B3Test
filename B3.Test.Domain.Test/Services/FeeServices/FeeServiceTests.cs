@@ -8,7 +8,7 @@ using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
 
-namespace B3.Test.Application.UnitTests
+namespace B3.Test.Domain.Test.Services.FeeServices
 {
     public class FeeServiceTests
     {
@@ -26,7 +26,11 @@ namespace B3.Test.Application.UnitTests
         [SetUp]
         public void Setup()
         {
-            _service = new(_loggermock.Object, _activityfactorymock.Object, _factotymock.Object);            
+            _service = new(_loggermock.Object, _activityfactorymock.Object, _factotymock.Object);
+
+            _tagmock.Reset();
+            _factotymock.Reset();
+            _activityfactorymock.Reset();
 
             _activitymock.Setup(m => m.Tag).Returns(_tagmock.Object);
             _factotymock.Setup(m => m.GetService(It.IsAny<FeeEnum>())).Returns(_fee.Object);

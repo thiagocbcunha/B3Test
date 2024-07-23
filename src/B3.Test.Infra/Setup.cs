@@ -6,9 +6,11 @@ using B3.Test.Infra.Database;
 using B3.Test.Infra.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace B3.Test.Infra;
 
+[ExcludeFromCodeCoverage]
 public static class DomainSetup
 {
     public static IServiceCollection AddInfra(this IServiceCollection services, IConfiguration configuration)

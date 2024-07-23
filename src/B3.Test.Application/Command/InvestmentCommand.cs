@@ -2,9 +2,11 @@
 using B3.Test.Domain.Core.Model;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace B3.Test.Application.Command;
 
+[ExcludeFromCodeCoverage]
 public class InvestmentCommand : IRequest<InvestmentModel>
 {
     [Required(ErrorMessage = "required value.")]

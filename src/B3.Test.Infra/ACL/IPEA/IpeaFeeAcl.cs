@@ -1,5 +1,5 @@
 ﻿using Flurl.Http;
-using B3.Test.Infra.ACL.BC;
+using System.Globalization;
 using B3.Test.Infra.Options;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
@@ -18,11 +18,19 @@ public class IpeaFeeAcl(ILogger<IpeaFeeAcl> _logger, IActivityFactory _activityF
 
         _logger.LogInformation("Executing GetFees");
 
-        var result = await _sourceFee.IpeaCDI.GetJsonAsync<IpeaData>();
+        try
+        {
+            var result = await _sourceFee.IpeaCDI.GetJsonAsync<IpeaData>();
 
-        if (result is not null && result.value is not null)
-            return result.value.Select(i => new FeeModel(DateTime.Parse(i.VALDATA), i.VALVALOR));
+            if (result is not null && result.value is not null)
+                return result.value.Select(i => new FeeModel(DateTime.Parse(i.VALDATA, CultureInfo.CurrentCulture), i.VALVALOR));
 
-        return Enumerable.Empty<FeeModel>();
+            return Enumerable.Empty<FeeModel>();
+        }
+        catch (System.Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao consultar CDI no Ipea.");
+            throw new HttpRequestException("Erro ao consultar CDI no Ipea.");
+        }
     }
 }

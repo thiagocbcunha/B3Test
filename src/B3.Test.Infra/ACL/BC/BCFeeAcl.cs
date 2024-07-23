@@ -18,7 +18,15 @@ public class BCFeeAcl(ILogger<BCFeeAcl> _logger, IActivityFactory _activityFacto
 
         _logger.LogInformation("Executing GetFees");
 
-        return (await _sourceFee.BCCDI.GetJsonAsync<IEnumerable<BcData>>())
-            .Select(i => new FeeModel(DateTime.ParseExact(i.data, "dd/MM/yyyy", CultureInfo.InvariantCulture), decimal.Parse(i.valor)));
+        try
+        {
+            return (await _sourceFee.BCCDI.GetJsonAsync<IEnumerable<BcData>>())
+                .Select(i => new FeeModel(DateTime.ParseExact(i.data, "dd/MM/yyyy", CultureInfo.InvariantCulture), decimal.Parse(i.valor)));
+        }
+        catch (System.Exception ex)
+        {
+            _logger.LogError(ex, "Erro ao consultar CDI no BC.");
+            throw new HttpRequestException("Erro ao consultar CDI no BC.");
+        }
     }
 }
