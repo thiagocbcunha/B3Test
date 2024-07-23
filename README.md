@@ -7,9 +7,9 @@ Para iniciar o projeto há duas formas:
 * Via Docker
 	* A vantagem do Docker é que ferramentais de log e telemetria sobem junto com a aplicação. Com isso poderá ser atestada a observabilidade da aplicação. 
 * Inicialização Local Pelo Visual Studio
-	* Nesse caso não terá todo um ambiente para verificar a monitoria.
+	* Nesse caso não terá todo um ambiente para a validação da observabilidade.
 
-Um ponto que vale nos atentar é que tanto inicialização com abordagem do Docker, quanto Inicialização local, ambas vão compartilhar das mesmas portas para as aplicações. Com isso é necessário matar por completo o container criado dentro do Docker para que não haja concorrência de porta da aplicação.
+Um ponto que vale a atenção é que tanto a inicialização via Docker, quanto inicialização local, ambas vão compartilhar das mesmas portas para as aplicações. Com isso é necessário matar por completo o container criado dentro do Docker para que não haja concorrência de porta da aplicação, caso alterne entre as opções.
 
 ### Docker
 Na raiz do projeto, assim que feito o pull request, abra o terminal e execute o comando abaixo.   
@@ -77,4 +77,4 @@ Para garantir a qualidade do código segui **conceitos do Clen Code** e **realiz
 
 
 ## Conteinerização
-A aplicação foi projetada com orquestração de containers em mente, facilitando a implantação e o gerenciamento em ambientes escaláveis. A viabilidade de orquestração foi validada por meio de testes com o Docker Compose, demonstrando potencial para utilização em produção com ferramentas como o Kubernetes.
+A aplicação foi projetada com orquestração de containers em mente, facilitando a implantação e o gerenciamento de ambientes escaláveis. A viabilidade de orquestração foi validada por meio de testes com o Docker Compose, demonstrando potencial para utilização em produção com ferramentas como o Kubernetes.
