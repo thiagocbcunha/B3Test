@@ -9,7 +9,7 @@ Na raiz do projeto, assim que feito o pull request, abra o terminal e execute o 
 ```bash
 docker-compose up -d
 ```
-![PowerShell](start-all-docker.png)
+![PowerShell](img/start-all-docker.png)
 
 Obs:Em toda reinicialização do docker, sempre e antes de nova inicialização **exclua o diretório DockerAppFiles** criado na raiz do projeto. 
 
@@ -19,7 +19,7 @@ Por fim, acesso o swagger das aplicações, nos endereços:
 
 ### Inicialização Local
 Abra a Solution do projeto Visual Studio, em seguida clique com botão direito sobre o projeto **B3.Test-FrontrEnd** navegue no menu até Open In Terminal (Abrir no Terminal). Irá inicializar o PowerShell do Desenvolvedor no Visual Studio. 
-![PowerShell](init-frontend.png)
+![PowerShell](img/init-frontend.png)
 
 Digite o comando abaixo:
 ```bash
@@ -27,8 +27,8 @@ ng serve
 ```
 Com isso a aplicação em Angular irá iniciar na porta 4200. Pronto o FrontEnd está inicializado, falta a WebApi.
 Para a WebApi set o **B3.Test-WebApi** como Startup, inicie o projeto como Dock ou http. Agora sim tudo finalizado.
-![WebApi](webapi-init-http.png)
-![WebApi](webapi-init-dock.png)
+![WebApi](img/webapi-init-http.png)
+![WebApi](img/webapi-init-dock.png)
 
 #### Acesso
 Por fim, acesso o swagger das aplicações, nos endereços:
