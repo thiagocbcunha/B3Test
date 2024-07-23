@@ -6,4 +6,3 @@ export class CDBInvSimulationModel
     public taxExemptProfit: number = 0; 
     public performanceByMonth?: CDBInvPerformaceByMonthModel[];
 }
-  

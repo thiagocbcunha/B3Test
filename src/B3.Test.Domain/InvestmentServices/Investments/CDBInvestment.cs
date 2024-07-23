@@ -39,7 +39,7 @@ public class CdbInvestment(ILogger<CdbInvestment> logger, IActivityFactory activ
             profit = profit - (profit * tax);
 
             investmentModel.TaxExemptProfit = freeTax + profit;
-            investmentModel.PerformanceByMonth.Add(new InvestmentMonthModel(Prevision: now.AddMonths(month + 1), Performance: initValue, TaxExemptProfit: investmentModel.TaxExemptProfit));
+            investmentModel.PerformanceByMonth.Add(new InvestmentMonthModel(Prevision: now.AddMonths(month + 1), Tax: tax, Performance: initValue, TaxExemptProfit: investmentModel.TaxExemptProfit));
         }
 
         return investmentModel;

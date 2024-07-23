@@ -66,7 +66,8 @@
           <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">Resgate em</th>
+                  <th scope="col">Resgate</th>
+                  <th scope="col">IR</th>
                   <th scope="col">Rentabilidade</th>
                   <th scope="col">Rentabilidade com desconto IR</th>
                 </tr>
@@ -74,6 +75,7 @@
               <tbody>
                 <tr *ngFor="let performance of model.resultSimulation.performanceByMonth">
                   <td>{{performance.prevision | date : 'dd/MM/yyyy'}}</td>
+                  <td>{{performance.tax * 100}}</td>
                   <td>{{performance.performance | currency: 'R$ '}}</td>
                   <td>{{performance.taxExemptProfit | currency: 'R$ '}}</td>
                 </tr>
