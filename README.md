@@ -22,6 +22,8 @@ docker-compose up -d
 
 *Obs: Como visto na imagem os containers ficam com status de Started, contudo não é nesse momento que de fato a aplicação está de pé, para tal é necessário que seja encontrado o log visto na imagem abaixo do container **b3test-b3.test.frontend** no  Docker Desktop*
 ![Log Docker](img/log-docker.png)
+
+
 *Obs 2: Em toda reinicialização do docker, sempre e antes de nova inicialização **exclua o diretório DockerAppFiles** criado na raiz do projeto.*
 
 #### Acesso
