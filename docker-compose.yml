@@ -116,7 +116,7 @@ services:
       context: .
       dockerfile: ./src/B3.Test-FrontrEnd/Dockerfile
     ports:
-       - 4201:4200
+       - 4200:4200
     networks:
        - js_env
   

@@ -24,6 +24,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3345E665-0648-4C7C-9742-D5E9D60F156B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C33F6AF3-A2CF-4BE2-A71A-07B8A0DC2378}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{77D64CE0-C141-41EC-95DA-1B26A3FCBCA4}"
 	ProjectSection(SolutionItems) = preProject
