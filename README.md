@@ -26,7 +26,6 @@ docker-compose up -d
 *Obs 2: Em toda reinicialização do docker, sempre e antes de nova inicialização **exclua o diretório DockerAppFiles** criado na raiz do projeto.*
 
 #### Acesso
-Por fim, acesso o swagger das aplicações, nos endereços:
 * [Simulador de Investimento CDB](http://localhost:4200/)
 
 ### Inicialização Local Vis Visual Studio
@@ -54,7 +53,6 @@ Para a WebApi, set o **B3.Test-WebApi** como Startup, inicie o projeto como Dock
 ![WebApi](img/webapi-init-dock.png)
 
 #### Acesso
-Por fim, acesso o swagger das aplicações, nos endereços:
 * [Simulador de Investimento CDB](http://localhost:4200/)
 * [Swagger WebApi](http://localhost:32805/swagger/index.html)
 
