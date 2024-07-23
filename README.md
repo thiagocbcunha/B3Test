@@ -50,6 +50,8 @@ A observabilidade em aplicações refere-se à capacidade de compreender e monit
 ## Premissas
 Seguindo os princípios do bom desenvolvimento de software, construí este projeto com ênfase na arquitetura da solução e da aplicação. A análise do código revela uma separação em camadas bem definida, onde a camada de domínio, responsável pelas regras de negócio, é acessada exclusivamente por meio de interfaces bem definidas, chamadas de portas e o componente que apoia a lógica de negócio se adapta a essas portas. Essa abordagem, conhecida como **arquitetura hexagonal**, promove a independência da lógica de negócio em relação às tecnologias e frameworks utilizados, facilitando testes, manutenabilidade e reuso de código. O projeto também **incorpora os princípios SOLID**, um conjunto de boas práticas que garantem a coesão e baixo acoplamento. Essa combinação resulta em um código mais robusto, flexível e fácil de entender. 
 Para garantir a qualidade do código segui **conceitos do Clen Code** e **realizei testes unitários** com alta cobertura, como visto na imagem abaixo. Além disso, um **teste de integração** somente nas ACLs para validar as chamadas ao BC e Ipea para recuperação do CDI oficial.
+![PowerShell](img/test-coverage.png)
+
 
 ## Considerações
 Para apresentar esse projeto, tive pouco tempo e, por isso, não organizei algumas coisas que considero necessárias. Por exemplo, cada serviço deveria estar em uma solution separada. Além disso, as partes comuns deveriam estar em um gerenciador de pacotes interno da empresa. Nesse caso, seria interessante subir uma **imagem do NuGet no Docker** para essa finalidade. Infelizmente, do meu ponto de vista, a organização não atingiu um nível satisfatório.  
@@ -57,4 +59,3 @@ Para apresentar esse projeto, tive pouco tempo e, por isso, não organizei algum
 
 ## Conteinerização
 A aplicação foi projetada com orquestração de containers em mente, facilitando a implantação e o gerenciamento em ambientes escaláveis. A viabilidade de orquestração foi validada por meio de testes com o Docker Compose, demonstrando potencial para utilização em produção com ferramentas como o Kubernetes.
-
