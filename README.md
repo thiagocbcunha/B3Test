@@ -28,6 +28,7 @@ docker-compose up -d
 
 #### Acesso
 * [Simulador de Investimento CDB](http://localhost:4200/)
+* [Swagger WebApi](http://localhost:32805/swagger/index.html)
 
 ### Inicialização Local Vis Visual Studio
 Abra a Solution do projeto Visual Studio, em seguida clique com botão direito sobre o projeto **B3.Test-FrontrEnd** navegue no menu até Open In Terminal (Abrir no Terminal). Irá inicializar o PowerShell do Desenvolvedor no Visual Studio. 
@@ -73,7 +74,7 @@ Para execução de negócio acesse [Simulador de Investimento CDB](http://localh
 
 Ao clicar no botão **Simular** a tela deverá se comportar de acordo com a imagem abaixo, apresentando uma tabela de previsões com a quantidade de linhas correspondente ao valor preenchido no campo **Tempo total de investimento em meses**, nesse caso, foi o valor 4.
 
-![Tela Final](img/teste-03.png)
+![Tela Final](img/teste-03-.png)
 
 ### Testes Unitários
 Abra a Solution do projeto e executes os teste unitário. Ao final deverá estar de acordo com a imagem abaixo:
