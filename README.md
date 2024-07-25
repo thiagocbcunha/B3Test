@@ -13,7 +13,7 @@ Para iniciar o projeto há duas formas:
 Um ponto que vale a atenção é que tanto a inicialização via Docker, quanto inicialização local, ambas vão compartilhar das mesmas portas para as aplicações. Com isso é necessário matar por completo o container criado dentro do Docker para que não haja concorrência de porta da aplicação, caso alterne entre as opções.
 
 ### Docker
-Na raiz do projeto, assim que feito o pull request, abra o terminal e execute o comando abaixo.   
+Na raiz do projeto, assim que feito o pull request, abra o terminal e execute o comando abaixo.  
 ```bash
 docker-compose up -d
 ```
