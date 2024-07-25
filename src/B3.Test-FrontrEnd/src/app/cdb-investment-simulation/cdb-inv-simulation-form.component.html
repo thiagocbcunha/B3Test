@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container mat-title-large">
   <div>
     <h1>Simulação de Investimento CDB</h1>
-     <form (ngSubmit)="onSubmit()" #cdbInvSimulationForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #cdbInvSimulationForm="ngForm">
 
       <div class="form-group">
         <label>CDI Anual hoje:</label>
@@ -46,44 +46,88 @@
   </div>
 
   <div [hidden]="!submitted">
-    <h2>Investimento CDB</h2>
-    <div class="row">
-      <label class="col-xs-4">Tipo</label>
-      <div class="col-xs-8">CDB</div>
-    </div>
-    <div class="row">
-      <label class="col-xs-4">Rentabilidade No Período</label>
-      <div class="col-xs-8">{{ model.resultSimulation.performance | currency: 'R$ '}}</div>
-    </div>
-    <div class="row">
-      <label class="col-xs-4">Rentabilidade no Período com desconto IR</label>
-      <div class="col-xs-8">{{ model.resultSimulation.taxExemptProfit | currency: 'R$ '}}</div>
-    </div>
-    <div class="container">
-      <div class="card list-car">
-        <h4 class="card-header">Previsão Mensal</h4>
-        <div class="card-body">
-          <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Resgate</th>
-                  <th scope="col">IR</th>
-                  <th scope="col">Rentabilidade</th>
-                  <th scope="col">Rentabilidade com desconto IR</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let performance of model.resultSimulation.performanceByMonth">
-                  <td>{{performance.prevision | date : 'dd/MM/yyyy'}}</td>
-                  <td>{{performance.tax * 100 | currency: ' '}}%</td>
-                  <td>{{performance.performance | currency: 'R$ '}}</td>
-                  <td>{{performance.taxExemptProfit | currency: 'R$ '}}</td>
-                </tr>
-              </tbody>
-            </table>
+    <mat-tab-group>
+      <mat-tab label="CDI: 0,9%">
+        <h2>Investimento CDB</h2>
+        <div class="row">
+          <label class="col-xs-4">Tipo</label>
+          <div class="col-xs-8">CDB</div>
         </div>
-      </div>
+        <div class="row">
+          <label class="col-xs-4">Rentabilidade No Período</label>
+          <div class="col-xs-8">{{ model.fixedResultSimulation.performance | currency: 'R$ '}}</div>
+        </div>
+        <div class="row">
+          <label class="col-xs-4">Rentabilidade no Período com desconto IR</label>
+          <div class="col-xs-8">{{ model.fixedResultSimulation.profitFreeIR | currency: 'R$ '}}</div>
+        </div>
+        <div class="container">
+          <div class="card list-car">
+            <h4 class="card-header">Previsão Mensal</h4>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Resgate</th>
+                    <th scope="col">IR</th>
+                    <th scope="col">Rentabilidade</th>
+                    <th scope="col">Rentabilidade com desconto IR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let performance of model.fixedResultSimulation.performanceByMonth">
+                    <td>{{performance.prevision | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{performance.tax * 100 | currency: ' '}}%</td>
+                    <td>{{performance.performance | currency: 'R$ '}}</td>
+                    <td>{{performance.profitFreeIR | currency: 'R$ '}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="CDI Vigente">
+        <h2>Investimento CDB</h2>
+        <div class="row">
+          <label class="col-xs-4">Tipo</label>
+          <div class="col-xs-8">CDB</div>
+        </div>
+        <div class="row">
+          <label class="col-xs-4">Rentabilidade No Período</label>
+          <div class="col-xs-8">{{ model.resultSimulation.performance | currency: 'R$ '}}</div>
+        </div>
+        <div class="row">
+          <label class="col-xs-4">Rentabilidade no Período com desconto IR</label>
+          <div class="col-xs-8">{{ model.resultSimulation.profitFreeIR | currency: 'R$ '}}</div>
+        </div>
+        <div class="container">
+          <div class="card list-car">
+            <h4 class="card-header">Previsão Mensal</h4>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Resgate</th>
+                    <th scope="col">IR</th>
+                    <th scope="col">Rentabilidade</th>
+                    <th scope="col">Rentabilidade com desconto IR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let performance of model.resultSimulation.performanceByMonth">
+                    <td>{{performance.prevision | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{performance.tax * 100 | currency: ' '}}%</td>
+                    <td>{{performance.performance | currency: 'R$ '}}</td>
+                    <td>{{performance.profitFreeIR | currency: 'R$ '}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
   </div>
-</div>
 
 </div>

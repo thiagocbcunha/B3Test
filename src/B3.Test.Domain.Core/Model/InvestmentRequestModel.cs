@@ -2,4 +2,4 @@
 
 namespace B3.Test.Domain.Core.Model;
 
-public record InvestmentRequestModel(int TimeInvestmentInMonth, decimal InitialInvestment, InvestmentEnum InvestmentEnum);
+public record InvestmentRequestModel(decimal Fee, int TimeInvestmentInMonth, decimal InitialInvestment, InvestmentEnum InvestmentEnum);

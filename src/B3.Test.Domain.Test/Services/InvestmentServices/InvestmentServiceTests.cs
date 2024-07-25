@@ -41,7 +41,7 @@ public class InvestmentServiceTests
         {
             var model = _fixture.Create<InvestmentModel>();
             var request = _fixture.Create<InvestmentRequestModel>();
-            _investiment.Setup(m => m.GetInvestment(request.TimeInvestmentInMonth, request.InitialInvestment)).ReturnsAsync(model);
+            _investiment.Setup(m => m.GetInvestment(request)).ReturnsAsync(model);
 
             var result = await _service.GetInvestment(request);
 

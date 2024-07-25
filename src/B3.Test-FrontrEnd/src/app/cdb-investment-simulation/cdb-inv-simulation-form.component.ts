@@ -34,11 +34,15 @@ export class CDBInvSimulationFormComponent implements OnInit
 
     getSimulation() 
     { 
-        this.cDBService.getSimulation(this.model).subscribe((result:CDBInvSimulationModel) => 
-        {
-            this.submitted = true;
-            this.model.resultSimulation = result;
-            console.log(this.model.resultSimulation);
+        let model2 = { ...this.model };
+        model2.Fee = 0.9;
+        this.cDBService.getSimulation(model2).subscribe((result: CDBInvSimulationModel) => {
+          this.submitted = true;
+          this.model.fixedResultSimulation = result;
         });
+
+      this.cDBService.getSimulation(this.model).subscribe((result: CDBInvSimulationModel) => {
+        this.model.resultSimulation = result;
+      });
     }
 }

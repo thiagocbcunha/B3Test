@@ -4,8 +4,8 @@ import { retry, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { BaseService } from './base-services';
-import { CDBInvSimulationModel }from '../models/cdb-inv-simulation-model';
 import { CDBModel } from '../models/cdb-model';
+import { CDBInvSimulationModel }from '../models/cdb-inv-simulation-model';
 
 @Injectable({ providedIn: 'root' })
 export class CDBService extends BaseService

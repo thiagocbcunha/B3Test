@@ -9,6 +9,6 @@ public class InvestmentModel
     public decimal InvestmentPaid { get; set; }
     public InvestmentEnum Type { get; set; }
     public decimal Performance { get; set; }
-    public decimal TaxExemptProfit { get; set; }
+    public decimal ProfitFreeIR { get; set; }
     public IList<InvestmentMonthModel> PerformanceByMonth { get; set; } = new List<InvestmentMonthModel>();
 }

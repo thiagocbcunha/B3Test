@@ -3,5 +3,9 @@
 }
 
 .no-style .ng-invalid {
-border-left: 1px solid #CCC
+    border-left: 1px solid #CCC
+}
+
+.mat-tab-group {
+    margin-bottom: 48px;
 }

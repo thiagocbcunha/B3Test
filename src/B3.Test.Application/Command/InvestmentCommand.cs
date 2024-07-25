@@ -9,17 +9,19 @@ namespace B3.Test.Application.Command;
 [ExcludeFromCodeCoverage]
 public class InvestmentCommand : IRequest<InvestmentModel>
 {
-    [Required(ErrorMessage = "required value.")]
-    [Range(1, 1999999, ErrorMessage = "value out range.")]
+    public decimal Fee { get; set; } = 0;
+
+    [Required(ErrorMessage = "Value of attribute required.")]
+    [Range(1, 1999999, ErrorMessage = "Value out of range. The value should be between 1 1999999.")]
     public decimal InitialInvestment { get; set; }
 
-    [Required(ErrorMessage = "required value.")]
-    [Range(1, 360, ErrorMessage = "value out range.")]
+    [Required(ErrorMessage = "Value of attribute required.")]
+    [Range(2, 360, ErrorMessage = "Value out of range. The value should be between 2 and 360.")]
     public int TimeInvestmentInMonth { get; set; }
     public InvestmentEnum InvestmentEnum { get; set; }
 
     public static explicit operator InvestmentRequestModel(InvestmentCommand investmentCommand)
     {
-        return new InvestmentRequestModel(investmentCommand.TimeInvestmentInMonth, investmentCommand.InitialInvestment, investmentCommand.InvestmentEnum);
+        return new InvestmentRequestModel(investmentCommand.Fee, investmentCommand.TimeInvestmentInMonth, investmentCommand.InitialInvestment, investmentCommand.InvestmentEnum);
     }
 }

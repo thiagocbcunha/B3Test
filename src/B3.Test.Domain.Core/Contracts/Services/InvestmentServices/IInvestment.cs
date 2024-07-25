@@ -4,5 +4,5 @@ namespace B3.Test.Domain.Core.Contracts.Services.InvestmentServices;
 
 public interface IInvestment
 {
-    Task<InvestmentModel> GetInvestment(int timeOfInvestment, decimal initValue);
+    Task<InvestmentModel> GetInvestment(InvestmentRequestModel investmentRequest);
 }
