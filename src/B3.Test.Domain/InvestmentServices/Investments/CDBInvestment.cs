@@ -1,6 +1,6 @@
 ﻿using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using Microsoft.Extensions.Logging;
 using B3.Test.Domain.Core.Contracts.Repositories;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
@@ -23,14 +23,14 @@ public class CdbInvestment(ILogger<CdbInvestment> logger, IActivityFactory activ
         var freeTax = initValue;
         var investmentModel = new InvestmentModel();
         var CDI = new BasicFeeModel(investmentRequest.Fee);
-        var TB = await profitabilityRepository.GetByInvestmentType(InvestmentEnum.CDB);
+        var TB = await profitabilityRepository.GetByInvestmentType(InvestmentType.CDB);
 
         if (CDI.Fee == 0)
-            CDI = await feeService.GetCurrent(FeeEnum.CDI);
+            CDI = await feeService.GetCurrent(FeeType.CDI);
 
         investmentModel.Fee = CDI.Fee;
         investmentModel.InvestmentPaid = TB.Paid;
-        investmentModel.Type = InvestmentEnum.CDB;
+        investmentModel.Type = InvestmentType.CDB;
         investmentModel.Performance = initValue;
         investmentModel.ProfitFreeIR = initValue;
 

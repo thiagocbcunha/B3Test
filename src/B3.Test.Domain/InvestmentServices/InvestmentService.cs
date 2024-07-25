@@ -14,7 +14,7 @@ public class InvestmentService(ILogger<InvestmentService> _logger, IActivityFact
 
         _logger.LogInformation("Executing GetInvestment");
 
-        return await _investmentFactory.GetService(investmentRequestModel.InvestmentEnum)
+        return await _investmentFactory.GetService(investmentRequestModel.InvestmentType)
             .GetInvestment(investmentRequestModel);
     }
 }

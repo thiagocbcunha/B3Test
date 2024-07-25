@@ -6,7 +6,7 @@ using B3.Test.Domain.Core.Contracts.Services.FeeServices;
 
 namespace B3.Test.Domain.FeeServices.Fees;
 
-public class CdiFee(ILogger<CdiFee> logger, IActivityFactory activityFactory, IDailyCDIAcl dailyCDIAcl, IMonthlyCDIAcl monthlyCDIAcl) : ICdiFee
+public class CdiFee(ILogger<CdiFee> logger, IActivityFactory activityFactory, IDailyCdiAcl dailyCDIAcl, IMonthlyCDIAcl monthlyCDIAcl) : ICdiFee
 {
     public async Task<BasicFeeModel> GetConsolidated()
     {

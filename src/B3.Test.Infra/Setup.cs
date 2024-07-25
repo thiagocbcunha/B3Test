@@ -19,7 +19,7 @@ public static class DomainSetup
         configuration.GetRequiredSection(nameof(SourceFee)).Bind(souceFee);
 
         services.AddScoped(i => souceFee);
-        services.AddScoped<IDailyCDIAcl, BCFeeAcl>();
+        services.AddScoped<IDailyCdiAcl, BCFeeAcl>();
         services.AddScoped<IMonthlyCDIAcl, IpeaFeeAcl>();
         services.AddScoped<IProfitabilityRepository, ProfitabilityRepositoryMock>();
 

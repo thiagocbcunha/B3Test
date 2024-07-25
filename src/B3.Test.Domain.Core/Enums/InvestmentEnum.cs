@@ -1,6 +1,6 @@
-﻿namespace B3.Test.Domain.Core.Enums;
+﻿namespace B3.Test.Domain.Core.Types;
 
-public enum InvestmentEnum : sbyte
+public enum InvestmentType : sbyte
 {
     CDB,
     Tesouro

@@ -1,7 +1,7 @@
 using Moq;
 using AutoFixture;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Domain.FeeServices;
 using B3.Test.Library.Contracts;
@@ -33,7 +33,7 @@ public class FeeServiceTests
         _activityfactorymock.Reset();
 
         _activitymock.Setup(m => m.Tag).Returns(_tagmock.Object);
-        _factotymock.Setup(m => m.GetService(It.IsAny<FeeEnum>())).Returns(_fee.Object);
+        _factotymock.Setup(m => m.GetService(It.IsAny<FeeType>())).Returns(_fee.Object);
         _activityfactorymock.Setup(m => m.Start<FeeService>()).Returns(_activitymock.Object);
         _tagmock.Setup(m => m.SetTag("log", "Executing GetCurrent")).Returns(_tagmock.Object);
         _tagmock.Setup(m => m.SetTag("log", "Executing GetConsolidated")).Returns(_tagmock.Object);
@@ -47,12 +47,12 @@ public class FeeServiceTests
             var model = _fixture.Create<BasicFeeModel>();
             _fee.Setup(m => m.GetCurrent()).ReturnsAsync(model);
 
-            var result = await _service.GetCurrent(FeeEnum.CDI);
+            var result = await _service.GetCurrent(FeeType.CDI);
 
             result.Should().BeSameAs(model);
 
             _activityfactorymock.Verify(m => m.Start<FeeService>(), Times.Once);
-            _factotymock.Verify(m => m.GetService(It.IsAny<FeeEnum>()), Times.Once);
+            _factotymock.Verify(m => m.GetService(It.IsAny<FeeType>()), Times.Once);
             _tagmock.Verify(m => m.SetTag("log", "Executing GetCurrent"), Times.Once);
         }
     }
@@ -65,12 +65,12 @@ public class FeeServiceTests
             var model = _fixture.Create<BasicFeeModel>();
             _fee.Setup(m => m.GetConsolidated()).ReturnsAsync(model);
 
-            var result = await _service.GetConsolidated(FeeEnum.CDI);
+            var result = await _service.GetConsolidated(FeeType.CDI);
 
             result.Should().BeSameAs(model);
 
             _activityfactorymock.Verify(m => m.Start<FeeService>(), Times.Once);
-            _factotymock.Verify(m => m.GetService(It.IsAny<FeeEnum>()), Times.Once);
+            _factotymock.Verify(m => m.GetService(It.IsAny<FeeType>()), Times.Once);
             _tagmock.Verify(m => m.SetTag("log", "Executing GetConsolidated"), Times.Once);
         }
     }

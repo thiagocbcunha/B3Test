@@ -16,6 +16,6 @@ public class ConsolidatedFeeHandler(ILogger<ConsolidatedFeeHandler> _logger, IAc
 
         _logger.LogInformation("Executing Handler");
 
-        return await _feeService.GetConsolidated(request.FeeEnum);
+        return await _feeService.GetConsolidated(request.FeeType);
     }
 }

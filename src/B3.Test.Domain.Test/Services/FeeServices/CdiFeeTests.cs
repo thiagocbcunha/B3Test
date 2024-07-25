@@ -18,7 +18,7 @@ public class CdiFeeTests
     private readonly Mock<ITag> _tagmock = new();
     private readonly Mock<IActivity> _activitymock = new();
     private readonly Mock<ILogger<CdiFee>> _loggermock = new();
-    private readonly Mock<IDailyCDIAcl> _dailycdiaclmock = new();
+    private readonly Mock<IDailyCdiAcl> _dailycdiaclmock = new();
     private readonly Mock<IMonthlyCDIAcl> _monthlycdiaclmock = new();
     private readonly Mock<IActivityFactory> _activityfactorymock = new();
 

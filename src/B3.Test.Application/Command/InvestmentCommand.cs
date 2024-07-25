@@ -1,4 +1,4 @@
-﻿using B3.Test.Domain.Core.Enums;
+﻿using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
@@ -18,10 +18,10 @@ public class InvestmentCommand : IRequest<InvestmentModel>
     [Required(ErrorMessage = "Value of attribute required.")]
     [Range(2, 360, ErrorMessage = "Value out of range. The value should be between 2 and 360.")]
     public int TimeInvestmentInMonth { get; set; }
-    public InvestmentEnum InvestmentEnum { get; set; }
+    public InvestmentType InvestmentType { get; set; }
 
     public static explicit operator InvestmentRequestModel(InvestmentCommand investmentCommand)
     {
-        return new InvestmentRequestModel(investmentCommand.Fee, investmentCommand.TimeInvestmentInMonth, investmentCommand.InitialInvestment, investmentCommand.InvestmentEnum);
+        return new InvestmentRequestModel(investmentCommand.Fee, investmentCommand.TimeInvestmentInMonth, investmentCommand.InitialInvestment, investmentCommand.InvestmentType);
     }
 }

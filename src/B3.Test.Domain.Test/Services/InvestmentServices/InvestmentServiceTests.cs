@@ -1,7 +1,7 @@
 using Moq;
 using AutoFixture;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
@@ -31,7 +31,7 @@ public class InvestmentServiceTests
         _activitymock.Setup(m => m.Tag).Returns(_tagmock.Object);
         _tagmock.Setup(m => m.SetTag("log", "Executing GetInvestment")).Returns(_tagmock.Object);
         _activityfactorymock.Setup(m => m.Start<InvestmentService>()).Returns(_activitymock.Object);
-        _factotymock.Setup(m => m.GetService(It.IsAny<InvestmentEnum>())).Returns(_investiment.Object);
+        _factotymock.Setup(m => m.GetService(It.IsAny<InvestmentType>())).Returns(_investiment.Object);
     }
 
     [Test]
@@ -49,7 +49,7 @@ public class InvestmentServiceTests
 
             _activityfactorymock.Verify(m => m.Start<InvestmentService>(), Times.Once);
             _tagmock.Verify(m => m.SetTag("log", "Executing GetInvestment"), Times.Once);
-            _factotymock.Verify(m => m.GetService(It.IsAny<InvestmentEnum>()), Times.Once);
+            _factotymock.Verify(m => m.GetService(It.IsAny<InvestmentType>()), Times.Once);
         }
     }
 }

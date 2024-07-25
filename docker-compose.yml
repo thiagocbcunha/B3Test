@@ -114,7 +114,7 @@ services:
     image: b3-test-frontend
     build:
       context: .
-      dockerfile: ./src/B3.Test-FrontrEnd/Dockerfile
+      dockerfile: ./src/B3.Test-FrontEnd/Dockerfile
     ports:
        - 4200:4200
     depends_on:

@@ -2,7 +2,7 @@
 
 namespace B3.Test.Domain.Core.Contracts.Acl;
 
-public interface IDailyCDIAcl
+public interface IDailyCdiAcl
 {
     Task<IEnumerable<FeeModel>> GetFees();
 }

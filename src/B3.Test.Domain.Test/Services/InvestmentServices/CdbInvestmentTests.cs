@@ -1,7 +1,7 @@
 using Moq;
 using AutoFixture;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
@@ -39,7 +39,7 @@ public class CdbInvestmentTests
     {
         _activityfactorymock.Verify(m => m.Start<CdbInvestment>(), Times.Once);
         _tagmock.Verify(m => m.SetTag("log", "Executing GetInvestment"), Times.Once);
-        _profitabilityrepositorymock.Verify(m => m.GetByInvestmentType(InvestmentEnum.CDB), Times.Once);
+        _profitabilityrepositorymock.Verify(m => m.GetByInvestmentType(InvestmentType.CDB), Times.Once);
 
         _tagmock.Reset();
         _feeservicemock.Reset();
@@ -57,9 +57,9 @@ public class CdbInvestmentTests
             var feeModel = new BasicFeeModel(10);
             var performance = 2289.2296571911406449285801890M;
             var profitFreeIR = 1960.8452086124695481892931606M;
-            var profitability = new ProfitabilityModel(InvestmentEnum.CDB, 110);
+            var profitability = new ProfitabilityModel(InvestmentType.CDB, 110);
 
-            var request = new InvestmentRequestModel(0, timeOfInvestment, initValue, InvestmentEnum.CDB);
+            var request = new InvestmentRequestModel(0, timeOfInvestment, initValue, InvestmentType.CDB);
 
             await ExecuteAndValidateResult(request, timeOfInvestment, feeModel, performance, profitFreeIR, profitability);
         }
@@ -73,9 +73,9 @@ public class CdbInvestmentTests
         var feeModel = new BasicFeeModel(0.9m);
         var performance = 1059.7556770148984501188388823M;
         var profitFreeIR = 1046.3106496865462988421001338M;
-        var profitability = new ProfitabilityModel(InvestmentEnum.CDB, 108);
+        var profitability = new ProfitabilityModel(InvestmentType.CDB, 108);
 
-        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentEnum.CDB);
+        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentType.CDB);
 
         await ExecuteAndValidateResult(request, timeOfInvestment, feeModel, performance, profitFreeIR, profitability);
     }
@@ -88,9 +88,9 @@ public class CdbInvestmentTests
         var feeModel = new BasicFeeModel(0.9m);
         var performance = 1123.0820949653057631841036240M;
         var profitFreeIR = 1098.4656759722446105472828992M;
-        var profitability = new ProfitabilityModel(InvestmentEnum.CDB, 108);
+        var profitability = new ProfitabilityModel(InvestmentType.CDB, 108);
 
-        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentEnum.CDB);
+        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentType.CDB);
 
         await ExecuteAndValidateResult(request, timeOfInvestment, feeModel, performance, profitFreeIR, profitability);
     }
@@ -103,9 +103,9 @@ public class CdbInvestmentTests
         var feeModel = new BasicFeeModel(0.9m);
         var performance = 1261.3133920316600726659576277M;
         var profitFreeIR = 1215.5835484261195599494150428M;
-        var profitability = new ProfitabilityModel(InvestmentEnum.CDB, 108);
+        var profitability = new ProfitabilityModel(InvestmentType.CDB, 108);
 
-        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentEnum.CDB);
+        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentType.CDB);
 
         await ExecuteAndValidateResult(request, timeOfInvestment, feeModel, performance, profitFreeIR, profitability);
     }
@@ -118,9 +118,9 @@ public class CdbInvestmentTests
         var feeModel = new BasicFeeModel(0.9m);
         var performance = 1590.9114729184122112915333571M;
         var profitFreeIR = 1502.2747519806503795978033535M;
-        var profitability = new ProfitabilityModel(InvestmentEnum.CDB, 108);
+        var profitability = new ProfitabilityModel(InvestmentType.CDB, 108);
 
-        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentEnum.CDB);
+        var request = new InvestmentRequestModel(feeModel.Fee, timeOfInvestment, initValue, InvestmentType.CDB);
 
         await ExecuteAndValidateResult(request, timeOfInvestment, feeModel, performance, profitFreeIR, profitability);
     }
@@ -129,8 +129,8 @@ public class CdbInvestmentTests
     {
         if (_service is not null)
         {
-            _feeservicemock.Setup(m => m.GetCurrent(FeeEnum.CDI)).ReturnsAsync(feeModel);
-            _profitabilityrepositorymock.Setup(m => m.GetByInvestmentType(InvestmentEnum.CDB)).ReturnsAsync(profitability);
+            _feeservicemock.Setup(m => m.GetCurrent(FeeType.CDI)).ReturnsAsync(feeModel);
+            _profitabilityrepositorymock.Setup(m => m.GetByInvestmentType(InvestmentType.CDB)).ReturnsAsync(profitability);
 
             var result = await _service.GetInvestment(request);
 

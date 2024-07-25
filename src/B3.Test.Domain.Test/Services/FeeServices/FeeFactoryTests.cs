@@ -1,6 +1,6 @@
 using Moq;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.FeeServices;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
 
@@ -24,7 +24,7 @@ public class FeeFactoryTests
     {
         if (_factory is not null)
         {
-            var feeService = _factory.GetService(FeeEnum.CDI);
+            var feeService = _factory.GetService(FeeType.CDI);
             feeService.Should().BeSameAs(_cdifee.Object);
         }
     }
@@ -34,7 +34,7 @@ public class FeeFactoryTests
     {
         if (_factory is not null)
         {
-            var feeService = () => _factory.GetService(FeeEnum.Selic);
+            var feeService = () => _factory.GetService(FeeType.Selic);
             feeService.Should().ThrowExactly<NotImplementedException>();
         }
     }

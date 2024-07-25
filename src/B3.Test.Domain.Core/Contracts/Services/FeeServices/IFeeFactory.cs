@@ -1,8 +1,8 @@
-﻿using B3.Test.Domain.Core.Enums;
+﻿using B3.Test.Domain.Core.Types;
 
 namespace B3.Test.Domain.Core.Contracts.Services.FeeServices;
 
 public interface IFeeFactory
 {
-    IFee GetService(FeeEnum feeEnum);
+    IFee GetService(FeeType feeType);
 }

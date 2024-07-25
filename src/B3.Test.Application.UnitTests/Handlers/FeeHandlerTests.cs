@@ -1,7 +1,7 @@
 using Moq;
 using AutoFixture;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
 using B3.Test.Application.Command;
@@ -38,7 +38,7 @@ public class FeeHandlerTests
     {
         var command = _fixture.Create<FeeCommand>();
         var basicFeeModel = _fixture.Create<BasicFeeModel>();
-        _servicemock.Setup(m => m.GetCurrent(It.IsAny<FeeEnum>())).ReturnsAsync(basicFeeModel);
+        _servicemock.Setup(m => m.GetCurrent(It.IsAny<FeeType>())).ReturnsAsync(basicFeeModel);
 
         if (_handler is not null)
         {
@@ -48,7 +48,7 @@ public class FeeHandlerTests
 
             _activityfactorymock.Verify(m => m.Start<FeeHandler>(), Times.Once);
             _tagmock.Verify(m => m.SetTag("log", "Executing Handler"), Times.Once);
-            _servicemock.Verify(m => m.GetCurrent(It.IsAny<FeeEnum>()), Times.Once);
+            _servicemock.Verify(m => m.GetCurrent(It.IsAny<FeeType>()), Times.Once);
         }
     }
 }

@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Application.Command;
 
@@ -18,7 +18,7 @@ public class ProfitabilityController(IMediator _mediator) : ControllerBase
     [ProducesResponseType<ProfitabilityModel>(StatusCodes.Status200OK)]
     public async Task<ProfitabilityModel> GetCDI()
     {
-        var command = new ProfitabilityCommand(InvestmentEnum.CDB);
+        var command = new ProfitabilityCommand(InvestmentType.CDB);
         return await _mediator.Send(command);
     }
 
@@ -28,7 +28,7 @@ public class ProfitabilityController(IMediator _mediator) : ControllerBase
     [ProducesResponseType<ProfitabilityModel>(StatusCodes.Status200OK)]
     public async Task<ProfitabilityModel> GetTesouro()
     {
-        var command = new ProfitabilityCommand(InvestmentEnum.Tesouro);
+        var command = new ProfitabilityCommand(InvestmentType.Tesouro);
         return await _mediator.Send(command);
     }
 }

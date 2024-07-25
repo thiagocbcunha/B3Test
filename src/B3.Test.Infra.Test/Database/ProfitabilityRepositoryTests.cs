@@ -1,7 +1,7 @@
 using Moq;
 using FluentAssertions;
 using B3.Test.Infra.Database;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Library.Contracts;
 using Microsoft.Extensions.Logging;
 
@@ -37,17 +37,17 @@ namespace B3.Test.Infra.Test.Database
         }
             
 
-        [TestCase(InvestmentEnum.CDB, 108, TestName = "ShoudGetCDBSuccessfully")]
-        [TestCase(InvestmentEnum.Tesouro, 11, TestName = "ShoudGetTesouroSuccessfully")]
-        public async Task ShoudExecuteSuccessfully(InvestmentEnum investmentEnum, decimal expectedValue)
+        [TestCase(InvestmentType.CDB, 108, TestName = "ShoudGetCDBSuccessfully")]
+        [TestCase(InvestmentType.Tesouro, 11, TestName = "ShoudGetTesouroSuccessfully")]
+        public async Task ShoudExecuteSuccessfully(InvestmentType investmentType, decimal expectedValue)
         {
             if (_repository is not null)
             {
-                var result = await _repository.GetByInvestmentType(investmentEnum);
+                var result = await _repository.GetByInvestmentType(investmentType);
 
                 result.Paid.Should().Be(expectedValue);
                 result.RealPaid.Should().Be(expectedValue / 100);
-                result.InvestmentEnum.Should().Be(investmentEnum);
+                result.InvestmentType.Should().Be(investmentType);
 
                 _activityfactorymock.Verify(m => m.Start<ProfitabilityRepositoryMock>(), Times.Once);
                 _tagmock.Verify(m => m.SetTag("log", "Executing GetByInvestmentType"), Times.Once);

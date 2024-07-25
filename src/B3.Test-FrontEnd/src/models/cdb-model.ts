@@ -11,7 +11,7 @@ export class CDBModel
     constructor(
         public TimeInvestmentInMonth?: number,
         public InitialInvestment?: number,
-        public InvestmentEnum: number = 0
+        public InvestmentType: number = 0
     ) {
       
     }

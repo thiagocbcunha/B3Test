@@ -2,7 +2,7 @@ FROM node:alpine
 
 WORKDIR /usr/src/app
 
-COPY ./src/B3.Test-FrontrEnd /usr/src/app
+COPY ./src/B3.Test-FrontEnd /usr/src/app
 
 RUN npm install -g @angular/cli
 

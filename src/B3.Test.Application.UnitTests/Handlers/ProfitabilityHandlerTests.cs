@@ -1,7 +1,7 @@
 using Moq;
 using AutoFixture;
 using FluentAssertions;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using B3.Test.Library.Contracts;
 using B3.Test.Application.Command;
@@ -38,7 +38,7 @@ public class ProfitabilityHandlerTests
     {
         var command = _fixture.Create<ProfitabilityCommand>();
         var profitabilityModel = _fixture.Create<ProfitabilityModel>();
-        _repositorymock.Setup(m => m.GetByInvestmentType(It.IsAny<InvestmentEnum>())).ReturnsAsync(profitabilityModel);
+        _repositorymock.Setup(m => m.GetByInvestmentType(It.IsAny<InvestmentType>())).ReturnsAsync(profitabilityModel);
 
         if (_handler is not null)
         {
@@ -48,7 +48,7 @@ public class ProfitabilityHandlerTests
 
             _tagmock.Verify(m => m.SetTag("log", "Executing Handler"), Times.Once);
             _activityfactorymock.Verify(m => m.Start<ProfitabilityHandler>(), Times.Once);
-            _repositorymock.Verify(m => m.GetByInvestmentType(It.IsAny<InvestmentEnum>()), Times.Once);
+            _repositorymock.Verify(m => m.GetByInvestmentType(It.IsAny<InvestmentType>()), Times.Once);
         }
     }
 }

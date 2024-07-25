@@ -9,7 +9,7 @@ using B3.Test.Domain.Core.Contracts.Acl;
 
 namespace B3.Test.Infra.ACL.BC;
 
-public class BCFeeAcl(ILogger<BCFeeAcl> _logger, IActivityFactory _activityFactory, SourceFee _sourceFee) : IDailyCDIAcl
+public class BCFeeAcl(ILogger<BCFeeAcl> _logger, IActivityFactory _activityFactory, SourceFee _sourceFee) : IDailyCdiAcl
 {
     public async Task<IEnumerable<FeeModel>> GetFees()
     {

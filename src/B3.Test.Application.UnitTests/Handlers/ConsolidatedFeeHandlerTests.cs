@@ -5,7 +5,7 @@ using B3.Test.Application.Command;
 using B3.Test.Application.Handlers;
 using Microsoft.Extensions.Logging;
 using B3.Test.Domain.Core.Contracts.Services.FeeServices;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 using B3.Test.Domain.Core.Model;
 using FluentAssertions;
 
@@ -38,7 +38,7 @@ namespace B3.Test.Application.UnitTests.Handlers
         {
             var basicFeeModel = _fixture.Create<BasicFeeModel>();
             var command = _fixture.Create<ConsolidatedFeeCommand>();
-            _servicemock.Setup(m => m.GetConsolidated(It.IsAny<FeeEnum>())).ReturnsAsync(basicFeeModel);
+            _servicemock.Setup(m => m.GetConsolidated(It.IsAny<FeeType>())).ReturnsAsync(basicFeeModel);
 
             if (_handler is not null)
             {
@@ -46,7 +46,7 @@ namespace B3.Test.Application.UnitTests.Handlers
 
                 result.Should().BeSameAs(basicFeeModel);
 
-                _servicemock.Verify(m => m.GetConsolidated(It.IsAny<FeeEnum>()), Times.Once);
+                _servicemock.Verify(m => m.GetConsolidated(It.IsAny<FeeType>()), Times.Once);
                 _activityfactorymock.Verify(m => m.Start<ConsolidatedFeeHandler>(), Times.Once);
                 _tagmock.Verify(m => m.SetTag("log", "Executing Handler"), Times.Once);
             }

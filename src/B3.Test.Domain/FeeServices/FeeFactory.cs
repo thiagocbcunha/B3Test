@@ -1,16 +1,16 @@
 ﻿using B3.Test.Domain.Core.Contracts.Services.FeeServices;
-using B3.Test.Domain.Core.Enums;
+using B3.Test.Domain.Core.Types;
 
 namespace B3.Test.Domain.FeeServices;
 
 public class FeeFactory(ICdiFee _cDIFee) : IFeeFactory
 {
-    public IFee GetService(FeeEnum feeEnum)
+    public IFee GetService(FeeType feeType)
     {
-        return feeEnum switch
+        return feeType switch
         {
-            FeeEnum.CDI => _cDIFee,
-            FeeEnum.Selic => throw new NotImplementedException(),
+            FeeType.CDI => _cDIFee,
+            FeeType.Selic => throw new NotImplementedException(),
             _ => _cDIFee
         };
     }

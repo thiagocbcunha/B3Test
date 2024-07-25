@@ -16,6 +16,6 @@ public class ProfitabilityHandler(ILogger<ProfitabilityHandler> _logger, IActivi
 
         _logger.LogInformation("Executing Handler");
 
-        return await _profitabilityRepository.GetByInvestmentType(request.InvestmentEnum);
+        return await _profitabilityRepository.GetByInvestmentType(request.InvestmentType);
     }
 }

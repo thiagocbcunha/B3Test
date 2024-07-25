@@ -1,6 +1,6 @@
-﻿namespace B3.Test.Domain.Core.Enums;
+﻿namespace B3.Test.Domain.Core.Types;
 
-public enum FeeEnum : sbyte
+public enum FeeType : sbyte
 {
     CDI,
     Selic

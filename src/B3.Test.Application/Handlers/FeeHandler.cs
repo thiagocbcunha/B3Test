@@ -16,6 +16,6 @@ public class FeeHandler(ILogger<FeeHandler> _logger, IActivityFactory _activityF
 
         _logger.LogInformation("Executing Handler");
 
-        return await _feeService.GetCurrent(request.FeeEnum);
+        return await _feeService.GetCurrent(request.FeeType);
     }
 }
